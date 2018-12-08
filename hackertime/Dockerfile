@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     vim \
     ssh \
+    netcat \
     curl \
     wget \
     gcc \
@@ -49,6 +50,7 @@ WORKDIR /home/hacks
 ENV HOME /home/hacks
 
 EXPOSE 80
+EXPOSE 1337
 
 RUN echo "syntax on" >> .vimrc && \
     echo "set number" >> .vimrc && \
