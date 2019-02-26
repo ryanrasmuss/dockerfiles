@@ -40,27 +40,27 @@ RUN apt-get update && apt-get install -y \
     sudo \
     python3 \
     python3-pip && \
+    pip3 install flask && \
     apt-get autoremove --purge -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get clean
 
 # Create user
-RUN useradd -m dev && \
-    adduser dev sudo && \
-    echo "dev:dev" | chpasswd
+#RUN useradd -m dev && \
+#    adduser dev sudo && \
+#    echo "dev:dev" | chpasswd
 
 # Init user dev
-USER dev
-WORKDIR /home/dev
-ENV HOME /home/dev
+#USER dev
+#WORKDIR /home/dev
+#ENV HOME /home/dev
 
-# set up vimrc
-RUN echo "syntax on" >> .vimrc && \
-    echo "set number" >> .vimrc && \
-    echo "filetype plugin indent on" >> .vimrc && \
-    echo "set tabstop=4" >> .vimrc && \
-    echo "set expandtab" >> .vimrc && \
-    echo "set cursorline" >> .vimrc
+# set up/root/.vimrc
+RUN echo "syntax on" >> /root/.vimrc && \
+    echo "set number" >> /root/.vimrc && \
+    echo "filetype plugin indent on" >> /root/.vimrc && \
+    echo "set tabstop=4" >> /root/.vimrc && \
+    echo "set expandtab" >> /root/.vimrc && \
+    echo "set cursorline" >> /root/.vimrc
     
 # Base command for environment
 CMD ["/bin/bash"]
