@@ -11,7 +11,7 @@
 # Run via
 # docker run -ti -v local/dir/on/host:/home/dev/ dev:latest
 # 
-# alias dev='docker run -ti -v $(``pwd``)/:/home/dev/ dev:latest
+# alias dev='docker run -ti -v $(``pwd``)/:/home/dev/ dev:latest'
 
 # Base image debian 9
 FROM debian:latest
