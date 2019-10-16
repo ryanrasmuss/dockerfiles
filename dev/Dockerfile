@@ -13,7 +13,7 @@
 # 
 # alias dev='docker run -ti -v $(``pwd``)/:/home/dev/ dev:latest'
 
-# Base image debian 9
+# Base image debian
 FROM debian:latest
 
 # Label base
@@ -44,23 +44,9 @@ RUN apt-get update && apt-get install -y \
     apt-get autoremove --purge -y && \
     apt-get clean
 
-# Create user
-#RUN useradd -m dev && \
-#    adduser dev sudo && \
-#    echo "dev:dev" | chpasswd
+# create working directory
+WORKDIR /app
+ENV HOME /app
 
-# Init user dev
-#USER dev
-#WORKDIR /home/dev
-#ENV HOME /home/dev
-
-# set up/root/.vimrc
-RUN echo "syntax on" >> /root/.vimrc && \
-    echo "set number" >> /root/.vimrc && \
-    echo "filetype plugin indent on" >> /root/.vimrc && \
-    echo "set tabstop=4" >> /root/.vimrc && \
-    echo "set expandtab" >> /root/.vimrc && \
-    echo "set cursorline" >> /root/.vimrc
-    
 # Base command for environment
 CMD ["/bin/bash"]
