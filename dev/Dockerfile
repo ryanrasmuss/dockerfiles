@@ -41,12 +41,13 @@ RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip && \
     pip3 install flask && \
+    pip3 install requests && \
     apt-get autoremove --purge -y && \
     apt-get clean
 
 # create working directory
-WORKDIR /app
-ENV HOME /app
+WORKDIR /home/dev
+ENV HOME /home/dev
 
 # Base command for environment
 CMD ["/bin/bash"]
