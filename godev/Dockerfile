@@ -10,27 +10,18 @@
 # 
 # Transverse to your local GOPATH directory
 # Run the following
-# docker run -ti -v local/dir/on/host:/root/go godev:latest
+# docker run -ti -v local/dir/on/host:/go/src godev:latest
 #
-# alias godev='docker run -ti -v $(``pwd``)/:/root/go godev:latest'
+# alias godev='docker run -ti -v $(``pwd``)/:/go/src godev:latest'
 
-FROM ubuntu:latest
+FROM golang:latest
 
-LABEL godev latest
+WORKDIR /go/src/
 
-VOLUME [ "/mnt" ]
+RUN mkdir /go/pkg
 
-RUN apt-get update && apt-get install -y \
-    golang \
-    vim \
-    ssh \
-    sudo \
-    sqlite3 \
-    git && \
-    go get github.com/mattn/go-sqlite3
-
-WORKDIR /root/go
+RUN go get github.com/mattn/go-sqlite3
 
 EXPOSE 8080
 
-CMD [ "/bin/bash" ]
+CMD ["/bin/bash"]
