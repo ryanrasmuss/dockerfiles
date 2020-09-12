@@ -8,7 +8,7 @@
 # Build via
 # docker build -t godev .
 # 
-# Transverse to your local GOPATH directory
+# Transverse to your local GOPATH/src directory
 # Run the following
 # docker run -ti -v local/dir/on/host:/go/src godev:latest
 #
