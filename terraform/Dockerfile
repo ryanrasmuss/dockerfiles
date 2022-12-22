@@ -13,7 +13,7 @@
 # -v gives us the abaility to mount any state files or credential files during the run
 
 # Base image
-FROM debian:latest
+FROM debian:bullseye
 
 # Label
 LABEL terraform latest
