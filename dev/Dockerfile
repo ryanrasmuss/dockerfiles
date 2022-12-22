@@ -14,7 +14,7 @@
 # alias dev='docker run -ti -v $(``pwd``)/:/home/dev/ dev:latest'
 
 # Base image debian
-FROM debian:latest
+FROM debian:bullseye
 
 # Label base
 LABEL dev latest
