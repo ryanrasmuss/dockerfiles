@@ -8,7 +8,7 @@
 # To Run: docker run -it -p 8181:80 -v $(``pwd``)/:/home/hacks/ hackertime:latest
 #
 # Before starting msfconsole, run "msfdb init"
-FROM debian:latest
+FROM debian:bullseye
 
 LABEL hackertime latest
 
